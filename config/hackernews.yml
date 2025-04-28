@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json
+columns:
+  - size: full
+    widgets:
+      - type: group
+        widgets:
+          - type: hacker-news
+            limit: 30
+            collapse-after: 20
+          - type: lobsters
+            limit: 30
+            collapse-after: 20

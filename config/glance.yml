@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json
+pages:
+  - name: Home
+    !include: ./home.yml
+  - name: Youtubeeee
+    !include: ./youtube.yml
+  - name: Hackernews
+    !include: ./hackernews.yml
