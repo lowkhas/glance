@@ -1,0 +1,176 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.33.0-standalone-strict/configmap.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: glance
+  namespace: glance
+data:
+  glance.yml: |
+    pages:
+      - name: Home
+        !include: ./home.yml
+      - name: Youtubeeee
+        !include: ./youtube.yml
+      - name: Hackernews
+        !include: ./hackernews.yml
+  home.yml: |+
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+
+          - type: rss
+            limit: 10
+            collapse-after: 3
+            cache: 12h
+            feeds:
+              - url: https://selfh.st/rss/
+                title: selfh.st
+                limit: 4
+              - url: https://ciechanow.ski/atom.xml
+              - url: https://www.joshwcomeau.com/rss.xml
+              - url: https://samwho.dev/rss.xml
+
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: hacker-news
+              - type: lobsters
+
+          - type: videos
+            limit: 10
+            channels:
+              - UCZNhwA1B5YqiY1nLzmM0ZRg # Christian Lempa
+              - UCVRJ6D343dX-x730MRP8tNw # Cocadmin
+              - UCp3yVOm6A55nx65STpm3tXQ # Craft Computing
+              - UCVy16RS5eEDh8anP8j94G2A # DB Tech
+              - UCYeiozh-4QwuC1sjgCmB92w # DevOps Toolbox
+              - UCfz8x0lVzJpb_dgWm9kPVrw # DevOps Toolkit
+              - UCIFzjAer2W9gTWVECZgtDzg # GaryH Tech
+              - UCUUTdohVElFLSP4NBnlPEwA # Jim's Garage
+              - UCjCeyHQarZ0gtndcuz4dEkw # Korben
+              - UCxQKHvKbmSzGMvUrVtJYnUA # Learn Linux TV
+              - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
+              - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+              - UC_zBdZ0_H_jn41FDRG7q4Tw # Vimjoyer
+              - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+              - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+              - UCsBjURrPoezykLs9EqgamOA # Fireship
+              - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
+
+          - type: group
+            widgets:
+              - type: reddit
+                subreddit: selfhosted
+                show-thumbnails: true
+              - type: reddit
+                subreddit: technology
+                show-thumbnails: true
+              - type: reddit
+                subreddit: NixOS
+                show-thumbnails: true
+              - type: reddit
+                subreddit: devops
+                show-thumbnails: true
+              - type: reddit
+                subreddit: Proxmox
+                show-thumbnails: true
+              - type: reddit
+                subreddit: Meshtastic
+                show-thumbnails: true
+
+      - size: small
+        widgets:
+          - type: search
+            search-engine: duckduckgo
+            bangs:
+              - title: YouTube
+                shortcut: "!yt"
+                url: https://www.youtube.com/results?search_query={QUERY}
+                target: _blank
+
+          - type: bookmarks
+            groups:
+              - title: General
+                color: 100 100 100
+                links:
+                  - title: Proton Mail
+                    url: https://mail.proton.me
+                  - title: Amazon
+                    url: https://www.amazon.com/
+                  - title: Github
+                    url: https://github.com/
+                  - title: Gitlab
+                    url: https://gitlab.com/
+              - title: Homelab
+                color: 40 70 50
+                links:
+                  - title: Sabnzbd
+                    url: https://sabnzbd.lwkhs.com
+                  - title: Synology
+                    url: https://synology.lwkhs.com
+                  - title: Proxmox 1
+                    url: https://pve1.lwkhs.com
+                  - title: Proxmox 2
+                    url: https://pve2.lwkhs.com
+                  - title: Proxmox 3
+                    url: https://pve3.lwkhs.com
+                  - title: Proxmox 4
+                    url: https://pve4.lwkhs.com
+              - title: Entertainment
+                color: 10 70 50
+                links:
+                  - title: Jellyfin
+                    url: https://jellyfin.lwkhs.com
+                  - title: Sonarr
+                    url: https://sonarr.lwkhs.com
+                  - title: Radarr
+                    url: https://radarr.lwkhs.com
+                  - title: Netflix
+                    url: https://www.netflix.com/
+                  - title: YouTube
+                    url: https://www.youtube.com/
+              - title: Social
+                color: 200 50 50
+                links:
+                  - title: Reddit
+                    url: https://www.reddit.com/
+                  - title: Instagram
+                    url: https://www.instagram.com/
+  youtube.yml: |-
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json
+    columns:
+      - size: full
+        widgets:
+          - type: videos
+            style: grid-cards
+            channels:
+              - UCZNhwA1B5YqiY1nLzmM0ZRg # Christian Lempa
+              - UCVRJ6D343dX-x730MRP8tNw # Cocadmin
+              - UCp3yVOm6A55nx65STpm3tXQ # Craft Computing
+              - UCVy16RS5eEDh8anP8j94G2A # DB Tech
+              - UCYeiozh-4QwuC1sjgCmB92w # DevOps Toolbox
+              - UCfz8x0lVzJpb_dgWm9kPVrw # DevOps Toolkit
+              - UCIFzjAer2W9gTWVECZgtDzg # GaryH Tech
+              - UCUUTdohVElFLSP4NBnlPEwA # Jim's Garage
+              - UCjCeyHQarZ0gtndcuz4dEkw # Korben
+              - UCxQKHvKbmSzGMvUrVtJYnUA # Learn Linux TV
+              - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
+              - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+              - UC_zBdZ0_H_jn41FDRG7q4Tw # Vimjoyer
+              - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+  hackernews.yml: |
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/not-first/glance-schema/master/schema.json
+    columns:
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: hacker-news
+                limit: 30
+                collapse-after: 20
+              - type: lobsters
