@@ -24,9 +24,16 @@ spec:
           name: glance
           ports:
             - containerPort: 8080
-          securityContext:
-            runAsNonRoot: true
-            runAsGroup: 1000
+          #securityContext:
+          #  runAsNonRoot: true
+          #  runAsGroup: 1000
+          resources:
+            limits:
+              memory: 1000Mi
+              cpu: 100m
+            requests:
+              memory: 50Mi
+              cpu: 40m
           volumeMounts:
           - name: glance-config
             mountPath: /app/config/
